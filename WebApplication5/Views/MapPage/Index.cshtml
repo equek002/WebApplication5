@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "GeoServer Test";
+}
+
+<h2>Index</h2>
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+
+<body>
+    @*<button onclick="showMap()">Show Map</button>
+    <button onclick="goToLocation()">My Location</button>*@
+
+    <div id="map" style="height: 700px; width: 1200px"></div>
+    @*<div> stuff2</div>*@
+    <script>
+            CM_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="http://cloudmade.com">CloudMade</a>';
+
+            CM_URL = 'http://{s}.tile.cloudmade.com/d4fc77ea4a63471cab2423e66626cbb6/{styleId}/256/{z}/{x}/{y}.png';
+
+            OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+    </script>
+
+    <script>
+        var map = L.map('map').setView([1.355, 103.813], 12);
+
+        
+        L.tileLayer(OSM_URL).addTo(map);
+        //L.geoJson('http://teams-mini-2.ura.gov.sg:8080/geoserver/cite/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=cite:HERITAGETREES&maxFeatures=50&outputFormat=application%2Fjson').addTo(map);
+
+        //var treeLayer = L.tileLayer.wms('http://teams-mini-2.ura.gov.sg:8080/geoserver/cite/wms?service=WMS&version=1.1.0&request=GetMap&layers=cite:HERITAGETREES&styles=&bbox=11347.165400000289,22310.78810000047,45272.42210000008,48531.29810000025&width=768&height=593&srs=EPSG:3414&format=image%2Fjpeg',
+        //    { layers: 'heritage tree' }).addTo(map);
+
+            //L.marker([51.5, -0.09]).addTo(map)
+            //    .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
+
+            //L.circle([51.508, -0.11], 500, {
+            //    color: 'red',
+            //    fillColor: '#f03',
+            //    fillOpacity: 0.5
+            //}).addTo(map).bindPopup("I am a circle.");
+
+            //L.polygon([
+            //    [51.509, -0.08],
+            //    [51.503, -0.06],
+            //    [51.51, -0.047]
+            //]).addTo(map).bindPopup("I am a polygon.");
+
+    </script>
+    </body>
